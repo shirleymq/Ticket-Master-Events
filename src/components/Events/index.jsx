@@ -10,18 +10,22 @@ const Events = () => {
     _embedded: { events },
   } = data;
 
-  const eventsComponent = events.map((eventItem) => (
-    <EventItem
-      key={`event-item-${eventItem.id}`}
-      name={eventItem.name}
-      info={eventItem.info}
-      image={eventItem.images[0].url}
-    />
-  ));
+  const handleEventItemClick = (id) => {
+    console.log("evento clickeado: ", id);
+  };
   return (
     <div>
       Eventos
-      {eventsComponent}
+      {events.map((eventItem) => (
+        <EventItem
+          key={`event-item-${eventItem.id}`}
+          name={eventItem.name}
+          info={eventItem.info}
+          image={eventItem.images[0].url}
+          onEventClick={handleEventItemClick}
+          id={eventItem.id}
+        />
+      ))}
     </div>
   );
 };
