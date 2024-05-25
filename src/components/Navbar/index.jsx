@@ -1,7 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Navbar = ({ onSearch }) => {
   const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    console.log("onSearch cambio");
+  }, [onSearch]);
+
+  useEffect(() => {
+    console.log("componente listo");
+  }, []);
+
+  useEffect(() => {
+    console.log("search cambio");
+  }, [search]);
+
   const handleInputChange = (evt) => {
     setSearch(evt.target.value);
   };
