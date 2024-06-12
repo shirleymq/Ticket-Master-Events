@@ -1,14 +1,20 @@
-import { useState } from "react";
+import { useEffect, useRef } from "react";
 import eventsJSON from "../data/events.json";
 
 const useEventsData = () => {
-  const [data] = useState(eventsJSON);
-  const {
-    _embedded: { events },
-  } = data;
+  const data = useRef([]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      data.current = eventsJSON;
+    }, 4000);
+    //Load API call
+  }, []);
+
+  console.log(data.current);
 
   return {
-    events,
+    events: data.current?._embedded?.events || [],
   };
 };
 
