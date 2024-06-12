@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, forwardRef } from "react";
 
-const Navbar = ({ onSearch }) => {
+const Navbar = forwardRef(({ onSearch }, ref) => {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const Navbar = ({ onSearch }) => {
   };
 
   return (
-    <div>
+    <div ref={ref}>
       <p>Mi boletera</p>
       <input
         placeholder="Busca tu evento favorito"
@@ -36,6 +36,6 @@ const Navbar = ({ onSearch }) => {
       />
     </div>
   );
-};
-
+});
+Navbar.displayName = "Navbar";
 export default Navbar;
