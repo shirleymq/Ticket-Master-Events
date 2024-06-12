@@ -1,4 +1,4 @@
-import { useEffect, useState, forwardRef } from "react";
+import { useEffect, useState, forwardRef, useImperativeHandle } from "react";
 
 const Navbar = forwardRef(({ onSearch }, ref) => {
   const [search, setSearch] = useState("");
@@ -14,6 +14,11 @@ const Navbar = forwardRef(({ onSearch }, ref) => {
   useEffect(() => {
     console.log("search cambio");
   }, [search]);
+
+  useImperativeHandle(ref, () => ({
+    search,
+    setSearch,
+  }));
 
   const handleInputChange = (evt) => {
     setSearch(evt.target.value);
