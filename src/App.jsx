@@ -1,14 +1,14 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Events from "./components/Events";
-import { useRef, useState } from "react";
+import { useState, useRef } from "react";
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
   const containerRef = useRef();
 
   const handleNavbarSearch = (term) => {
-    console.log(containerRef.current);
+    console.log(containerRef.current.setSearch(""));
     setSearchTerm(term);
   };
 
