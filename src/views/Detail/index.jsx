@@ -14,7 +14,7 @@ const Detail = () => {
     const fetchEventsData = async () => {
       try {
         const response = await fetch(
-          `https://app.ticketmaster.com/discovery/v2/events/${eventId}?apikey=tOs157YEu5aDh5TjjoMvArjHh1KChoiS`
+          `https://app.ticketmaster.com/discovery/v2/events/${eventId}?apikey=${import.meta.env.VITE_TICKETMASTER_API_KEY}`
         );
         const data = await response.json();
         setEventData(data);
