@@ -11,6 +11,7 @@ const Detail = () => {
   const [eventData, setEventData] = useState({});
   const [error, setError] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  console.log(data);
 
   useEffect(() => {
     const fetchEventsData = async () => {
@@ -39,7 +40,7 @@ const Detail = () => {
     return <div>Ha ocurrido un error...</div>;
   }
 
-  console.log(eventData);
+  //console.log(eventData);
   return (
     <div className={styles.container}>
       {" "}
